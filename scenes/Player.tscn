@@ -1,0 +1,118 @@
+[gd_scene load_steps=39 format=2]
+
+[ext_resource path="res://resources/assets/sprites/player/player-idle/player-idle-1.png" type="Texture" id=1]
+[ext_resource path="res://resources/assets/sprites/player/player-idle/player-idle-4.png" type="Texture" id=2]
+[ext_resource path="res://resources/assets/sprites/player/player-idle/player-idle-8.png" type="Texture" id=3]
+[ext_resource path="res://resources/assets/sprites/player/player-idle/player-idle-9.png" type="Texture" id=4]
+[ext_resource path="res://resources/assets/sprites/player/player-idle/player-idle-7.png" type="Texture" id=5]
+[ext_resource path="res://resources/assets/sprites/player/player-idle/player-idle-6.png" type="Texture" id=6]
+[ext_resource path="res://resources/assets/sprites/player/player-idle/player-idle-2.png" type="Texture" id=7]
+[ext_resource path="res://resources/assets/sprites/player/player-idle/player-idle-3.png" type="Texture" id=8]
+[ext_resource path="res://resources/assets/sprites/player/player-idle/player-idle-5.png" type="Texture" id=9]
+[ext_resource path="res://resources/assets/sprites/player/player-skip/player-skip-4.png" type="Texture" id=10]
+[ext_resource path="res://resources/assets/sprites/player/player-fall/player-fall-1.png" type="Texture" id=11]
+[ext_resource path="res://resources/assets/sprites/player/player-skip/player-skip-5.png" type="Texture" id=12]
+[ext_resource path="res://resources/assets/sprites/player/player-jump/player-jump-1.png" type="Texture" id=13]
+[ext_resource path="res://resources/assets/sprites/player/player-skip/player-skip-7.png" type="Texture" id=14]
+[ext_resource path="res://resources/assets/sprites/player/player-duck/player-duck-2.png" type="Texture" id=15]
+[ext_resource path="res://resources/assets/sprites/player/player-skip/player-skip-8.png" type="Texture" id=16]
+[ext_resource path="res://resources/assets/sprites/player/player-duck/player-duck-1.png" type="Texture" id=17]
+[ext_resource path="res://resources/assets/sprites/player/player-climb/player-climb-2.png" type="Texture" id=18]
+[ext_resource path="res://resources/assets/sprites/player/player-skip/player-skip-1.png" type="Texture" id=19]
+[ext_resource path="res://resources/assets/sprites/player/player-skip/player-skip-6.png" type="Texture" id=20]
+[ext_resource path="res://resources/assets/sprites/player/player-jump/player-jump-4.png" type="Texture" id=21]
+[ext_resource path="res://resources/assets/sprites/player/player-hurt/player-hurt-2.png" type="Texture" id=22]
+[ext_resource path="res://resources/assets/sprites/player/player-fall/player-fall-4.png" type="Texture" id=23]
+[ext_resource path="res://resources/assets/sprites/player/player-jump/player-jump-2.png" type="Texture" id=24]
+[ext_resource path="res://resources/assets/sprites/player/player-skip/player-skip-2.png" type="Texture" id=25]
+[ext_resource path="res://resources/assets/sprites/player/player-skip/player-skip-3.png" type="Texture" id=26]
+[ext_resource path="res://resources/assets/sprites/player/player-hurt/player-hurt-1.png" type="Texture" id=27]
+[ext_resource path="res://resources/assets/sprites/player/player-fall/player-fall-2.png" type="Texture" id=28]
+[ext_resource path="res://resources/assets/sprites/player/player-fall/player-fall-3.png" type="Texture" id=29]
+[ext_resource path="res://resources/assets/sprites/player/player-duck/player-duck-3.png" type="Texture" id=30]
+[ext_resource path="res://resources/assets/sprites/player/player-duck/player-duck-4.png" type="Texture" id=31]
+[ext_resource path="res://resources/assets/sprites/player/player-climb/player-climb-1.png" type="Texture" id=32]
+[ext_resource path="res://resources/assets/sprites/player/player-jump/player-jump-3.png" type="Texture" id=33]
+[ext_resource path="res://resources/assets/sprites/player/player-climb/player-climb-3.png" type="Texture" id=34]
+[ext_resource path="res://resources/assets/sprites/player/player-climb/player-climb-4.png" type="Texture" id=35]
+[ext_resource path="res://resources/Scripts/Player.gd" type="Script" id=36]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 32 ), ExtResource( 18 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "Climb",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 24 ), ExtResource( 33 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "jump",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 14 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "Skip",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "Duck",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "Hurt",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 8.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8.16284, 10.5442 )
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+script = ExtResource( 36 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Duck"
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.280617, 5.05108 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.4 )
+process_mode = 0
+limit_left = -20
+limit_bottom = 525
+smoothing_enabled = true
+smoothing_speed = 2.0
+drag_margin_left = 0.04
+drag_margin_top = 0.03
+drag_margin_right = 0.04
+drag_margin_bottom = 0.3
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="raycasts" type="Node2D" parent="."]
+position = Vector2( -6.125, -1 )
+
+[node name="raycast" type="RayCast2D" parent="raycasts"]
+position = Vector2( -1, 8.129 )
+scale = Vector2( 1, 0.319 )
+
+[node name="raycast2" type="RayCast2D" parent="raycasts"]
+position = Vector2( 12, 8.129 )
+scale = Vector2( 1, 0.319 )
